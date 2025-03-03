@@ -6,6 +6,6 @@
         "-DCMAKE_CXX_COMPILER=clang++",
         "-DJSON_INCLUDE_DIR=external/json"
     ],
-    "developerName": "None",
+    "developerName": "Vishal Ahirwar",
     "projectName": "seeb"
 }
