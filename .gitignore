@@ -13,3 +13,4 @@ _deps
 build
 install
 __pycache__
+see-config.json
