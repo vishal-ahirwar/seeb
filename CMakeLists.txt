@@ -28,7 +28,7 @@ configure_file(res/config.h.in seebconfig.h)
 
 #@find Warning: Do not remove this line
 
-file(GLOB SOURCES "src/*.cpp")
+file(GLOB SOURCES "seeb/*.cpp")
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)

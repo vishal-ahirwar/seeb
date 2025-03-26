@@ -1,0 +1,14 @@
+{
+    "seeb": {
+        "compiler": "clang++",
+        "include": [],
+        "libs": [],
+        "libsDir": []
+    },
+    "hello-world": {
+        "compiler": "clang++",
+        "include": [],
+        "libs": [],
+        "libsDir": []
+    }
+}
