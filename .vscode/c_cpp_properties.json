@@ -1,7 +1,7 @@
-     {
+    {
        "configurations": [
            {
-               "name": "Linux OS",
+               "name": "Windows OS",
                "compileCommands": "${workspaceFolder}/build/debug/compile_commands.json",
                "includePath": [
                    "${workspaceFolder}/**"
@@ -11,9 +11,10 @@
                    "UNICODE",
                    "_UNICODE"
                ],
+               "windowsSdkVersion": "10.0.22621.0",
                "cStandard": "gnu23",
                "cppStandard": "c++20",
-               "intelliSenseMode": "linux-clang-x64"
+               "intelliSenseMode": "windows-clang-x86"
            }
        ],
        "version": 4

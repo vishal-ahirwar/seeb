@@ -2,17 +2,20 @@
 // Auto Genrated C++ file by aura CLI
 // None
 // Test Code
-#include <seebconfig.h>
-#include <setting.hpp>
+#include "setting.hpp"
 #include<time.h>
 #include<chrono>
 #include<thread>
+#include<filesystem>
+#include<vector>
+#include<string>
 using namespace std::chrono_literals;
-#ifdef WIN32
+#ifdef _WIN32
 std::string extention{".exe"};
 #else
 std::string extention{".x64"};
 #endif
+namespace fs=std::filesystem;
 int main(int argc, char *argv[])
 {
     System::Settings settings{};
@@ -20,9 +23,15 @@ int main(int argc, char *argv[])
     if (System::readConfigFile(settings)){
         for(const auto&setting:settings)
         {
+            auto cmd=setting.compiler;
+            cmd+=" -std=c++20 ";
             std::cout<<"Building "<<setting.name<<" ...\n";
-            auto cmd=setting.compiler+" "+setting.name+"/src/main.cxx"+" -o "+setting.name+extention;
-            std::cerr<<"Executing "<<cmd<<std::endl;
+            for(const auto&file:fs::recursive_directory_iterator(fs::path(setting.name))){
+                if((!file.is_directory()) && file.path().string().find(".cpp")!=std::string::npos){
+                    cmd+=" "+file.path().string();
+                };
+            };
+            cmd+=" -o "+setting.name+extention;
             std::system(cmd.c_str());
             std::cout<<"Done\n";
         }
